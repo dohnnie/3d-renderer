@@ -1,5 +1,11 @@
+import java.awt.Graphics;
+import java.awt.Color;
+import javax.swing.*;
+
 public class Point {
     int position[] = new int[3]; //(x, y, z)
+    int pWidth = 5;
+    int pHeight = 5;
     int length = 3;
 
     Point(int x, int y, int z) {
@@ -30,9 +36,10 @@ public class Point {
             this.position[2] - p.position[2]);
     }
 
-    void drawPoint() {
-        System.out.println("(" + 
-            this.position[0] + ", " + this.position[1] + ", " + this.position[2] 
-                + ")");
+    void drawPoint(Graphics g, JFrame frame) {
+        g = frame.getGraphics();
+
+        g.setColor(Color.black);
+        g.fillOval(this.position[0], this.position[1], pWidth, pHeight);
     }
 }
