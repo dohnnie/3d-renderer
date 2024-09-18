@@ -1,5 +1,5 @@
-import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.*;
 
 public class Point {
@@ -34,6 +34,12 @@ public class Point {
         return new Vector(this.position[0] - p.position[0], 
             this.position[1] - p.position[1],
             this.position[2] - p.position[2]);
+    }
+
+    void setPointToPoint(Point p) {
+        for(int i = 0; i < length; i++) {
+            this.position[i] = p.position[i];
+        }
     }
 
     void drawPoint(Graphics g, JFrame frame) {

@@ -60,4 +60,13 @@ public class Vector {
 
         return result;
     }
+
+    Vector scaleBy(int x, int y, int z) {
+        Vector result = new Vector();
+        result.direction[0] = this.direction[0] * x;
+        result.direction[1] = this.direction[1] * y;
+        result.direction[2] = this.direction[2] * z;
+
+        return result;
+    }
 }
