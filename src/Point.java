@@ -1,51 +1,36 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.*;
 
 public class Point {
-    int position[] = new int[3]; //(x, y, z)
+    int x, y, z; //(x, y, z)
     int pWidth = 5;
     int pHeight = 5;
-    int length = 3;
 
     Point(int x, int y, int z) {
-        this.position[0] = x;
-        this.position[1] = y;
-        this.position[2] = z;
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     Point addVectorToPoint(Vector v) {
-        for(int i = 0; i < length; i++) {
-            this.position[i] += v.direction[i];
-        }
-
-        return this;
+        return new Point(this.x += v.x, 
+                        this.y += v.y, 
+                        this.z += v.z);
     }
 
     Point subtractVectorFromPoint(Vector v) {
-        for(int i = 0; i < length; i++) {
-            this.position[i] -= v.direction[i];
-        }
-
-        return this;
+        return new Point(this.x -= v.x, 
+                        this.y -= v.y, 
+                        this.z -= v.z);
     }
 
     Vector subtractPointFromPoint(Point p) {
-        return new Vector(this.position[0] - p.position[0], 
-            this.position[1] - p.position[1],
-            this.position[2] - p.position[2]);
+        return new Vector(this.x - p.x, 
+            this.y - p.y,
+            this.z - p.z);
     }
 
     void setPointToPoint(Point p) {
-        for(int i = 0; i < length; i++) {
-            this.position[i] = p.position[i];
-        }
-    }
-
-    void drawPoint(Graphics g, JFrame frame) {
-        g = frame.getGraphics();
-
-        g.setColor(Color.black);
-        g.fillOval(this.position[0], this.position[1], pWidth, pHeight);
+        this.x = p.x;
+        this.y = p.y;
+        this.z = p.z;
     }
 }

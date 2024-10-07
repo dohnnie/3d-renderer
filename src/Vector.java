@@ -1,7 +1,5 @@
 public class Vector {
-    int x;
-    int y;
-    int z;
+    int x, y, z;
 
     Vector() {
         this.x = 0;
@@ -21,7 +19,9 @@ public class Vector {
         this.y += u.y;
         this.z += u.z;
 
-        return this;
+        return new Vector(this.x += u.x, 
+                        this.y += u.y, 
+                        this.z += u.z);
     }
 
     //Vector subtraction
@@ -30,7 +30,9 @@ public class Vector {
         this.y -= u.y;
         this.z -= u.z;
 
-        return this;
+        return new Vector(this.x -= u.x, 
+                        this.y -= u.y, 
+                        this.z -= u.z);
     }
 
     //Multiplying a 1x3 vector by { {cos(theta), -sin(theta), 0}, {sin(theta), cos(theta), 0}, {0, 0, 1}}
